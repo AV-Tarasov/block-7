@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Events\TaskCompleted;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TaskResource;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\TaskResource;
+use App\Models\Task;
 use App\Repositories\TaskRepositoryInterface;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
-use App\Models\Task;
-
 
 class TaskController extends Controller
 {
@@ -19,9 +18,7 @@ class TaskController extends Controller
 
     public function __construct(
         protected TaskRepositoryInterface $repo
-    )
-    {
-    }
+    ) {}
 
     public function index(Request $request)
     {

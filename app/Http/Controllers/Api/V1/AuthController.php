@@ -8,7 +8,6 @@ use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-
 class AuthController extends Controller
 {
     public function register(RegisterUserRequest $request)
@@ -35,9 +34,9 @@ class AuthController extends Controller
 
         $user = User::where('email', $data['email'])->first();
 
-        if (!$user || !Hash::check($data['password'], $user->password)) {
+        if (! $user || ! Hash::check($data['password'], $user->password)) {
             return response()->json([
-                'message' => 'Invalid credentials'
+                'message' => 'Invalid credentials',
             ], 401);
         }
         $user->tokens()->delete();
@@ -54,7 +53,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Logged out'
+            'message' => 'Logged out',
         ]);
     }
 }

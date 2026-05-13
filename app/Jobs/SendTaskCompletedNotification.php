@@ -20,9 +20,7 @@ class SendTaskCompletedNotification implements ShouldQueue
     public function __construct(
         public Task $task,
         public int $userId
-    )
-    {
-    }
+    ) {}
 
     /**
      * Execute the job.

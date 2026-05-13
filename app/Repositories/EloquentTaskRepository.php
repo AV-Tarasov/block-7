@@ -10,11 +10,9 @@ class EloquentTaskRepository implements TaskRepositoryInterface
     public function getAll(array $filters = []): LengthAwarePaginator
     {
         return Task::query()
-            ->when($filters['user_id'] ?? null, fn ($q, $userId) =>
-            $q->where('user_id', $userId)
+            ->when($filters['user_id'] ?? null, fn ($q, $userId) => $q->where('user_id', $userId)
             )
-            ->when($filters['status'] ?? null, fn ($q, $status) =>
-            $q->where('status', $status)
+            ->when($filters['status'] ?? null, fn ($q, $status) => $q->where('status', $status)
             )
             ->paginate(10);
     }
@@ -27,6 +25,7 @@ class EloquentTaskRepository implements TaskRepositoryInterface
     public function update(Task $task, array $data): Task
     {
         $task->update($data);
+
         return $task;
     }
 

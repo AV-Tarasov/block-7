@@ -2,10 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Models\TaskAudit;
 use App\Jobs\SendTaskCompletedNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Models\TaskAudit;
 
 class WriteTaskAuditLog
 {

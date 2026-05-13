@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Repositories\TaskRepositoryInterface;
 use App\Repositories\EloquentTaskRepository;
+use App\Repositories\TaskRepositoryInterface;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
