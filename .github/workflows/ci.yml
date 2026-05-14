@@ -27,7 +27,7 @@ jobs:
         run: ./vendor/bin/pint --test
 
       - name: Run PHPStan (static analysis)
-        run: ./vendor/bin/phpstan analyse
+        run: ./vendor/bin/phpstan analyse app routes config --memory-limit=1G
 
   tests:
     runs-on: ubuntu-latest
