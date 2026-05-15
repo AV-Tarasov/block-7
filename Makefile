@@ -24,3 +24,6 @@ logs:
 
 bash:
 	docker compose exec app sh
+
+deploy:
+	ssh root@server "cd /var/www/laravel-app && bash deploy/deploy.sh"

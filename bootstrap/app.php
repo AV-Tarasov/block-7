@@ -24,10 +24,11 @@ return Application::configure(basePath: dirname(__DIR__))
         });
     })
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->appendToGroup('api', [
-            RequestIdMiddleware::class,
-        ]);
-    })
+    $middleware->appendToGroup('api', [
+        RequestIdMiddleware::class,
+        \App\Http\Middleware\MetricsMiddleware::class,
+    ]);
+})
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
