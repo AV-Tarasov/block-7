@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\MetricsMiddleware;
 use App\Http\Middleware\RequestIdMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -24,11 +25,11 @@ return Application::configure(basePath: dirname(__DIR__))
         });
     })
     ->withMiddleware(function (Middleware $middleware): void {
-    $middleware->appendToGroup('api', [
-        RequestIdMiddleware::class,
-        \App\Http\Middleware\MetricsMiddleware::class,
-    ]);
-})
+        $middleware->appendToGroup('api', [
+            RequestIdMiddleware::class,
+            MetricsMiddleware::class,
+        ]);
+    })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

@@ -35,7 +35,7 @@ Route::get('/ready', function () {
             'status' => 'ready',
         ]);
 
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
 
         return response()->json([
             'status' => 'not ready',
