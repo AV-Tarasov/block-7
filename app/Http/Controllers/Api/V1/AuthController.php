@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -48,7 +49,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout($request)
+    public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
 

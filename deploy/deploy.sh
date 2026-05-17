@@ -26,6 +26,6 @@ docker compose exec -T app php artisan config:clear
 docker compose exec -T app php artisan cache:clear
 
 echo "Healthcheck"
-curl -f http://localhost || exit 1
+url -f http://localhost/api/ready || exit 1
 
 echo "Deploy successful"
